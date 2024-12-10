@@ -7,8 +7,9 @@ const GroupList = () => {
 
     useEffect(() => {
         const groupRef = ref(database, 'groups');
+        //listens for changes to 'groups'
         onValue(groupRef, (snapshot) => {
-            const groupData = snapshot.val();
+            const groupData = snapshot.val();//data snapshot
             const groupList = [];
             for (let id in groupData) {
                 groupList.push({ id, ...groupData[id] });

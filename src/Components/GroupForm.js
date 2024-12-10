@@ -8,7 +8,7 @@ const GroupForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const groupRef = ref(database, 'groups');
+        const groupRef = ref(database, 'groups'); //creates a (pointer) to the 'groups' node in the db
         const group = {
             name: groupName,
             type: groupType
