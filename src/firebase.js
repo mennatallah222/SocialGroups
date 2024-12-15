@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set, onValue } from "firebase/database";
+import { getMessaging, onMessage, getToken } from "firebase/messaging";
 
-//these are the credintials required to connect to firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBz0z6s3y8AG92E_Nj7gBoSqhZoTwkjvaU",
   authDomain: "cloud-computing-task-4e32f.firebaseapp.com",
@@ -13,7 +13,36 @@ const firebaseConfig = {
   measurementId: "G-MZ5K6TNFXS"
 };
 
-//initializing Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app); // the db service is accessed
-export {database, ref, push, set, onValue};
+const database = getDatabase(app);
+const messaging = getMessaging(app);
+
+export const requestPermission = async () => {
+  try {
+    
+    const permission = await Notification.requestPermission();
+    if (permission === "granted") {
+      console.log("Notification permission granted.");
+
+      
+      const token = await getToken(messaging, {
+        vapidKey: "BLCNrHzcrrQupwcGjVL4DpyHg8T9qlMssmcYgWKYg10i3tKsEOwqYiwuYzJcS9cuBIhW3Aq7v3KTuRZNJndHBJE", 
+      });
+
+      if (token) {
+        console.log("FCM Token:", token);
+        
+      } else {
+        console.log("No registration token available.");
+      }
+    } else {
+      console.log("Notification permission denied.");
+    }
+  } catch (error) {
+    console.error("Error getting permission for notifications:", error);
+  }
+};
+
+
+requestPermission();
+export { database, ref, push, set, onValue, messaging, onMessage, getToken };
