@@ -155,10 +155,6 @@ code {
 }
 
 /*********************/
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
 
 .navbar {
   height: 100vh;
@@ -212,4 +208,99 @@ body {
 
 .main-content {
   margin-left: 250px;
+}
+
+
+.topic-subscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.topic-input {
+  margin-bottom: 10px;
+}
+
+.topic-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.topic-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.subscribe-button, .unsubscribe-button {
+  padding: 10px 20px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.subscribe-button:hover {
+  background-color: #20b357;
+}
+
+.unsubscribe-button {
+  background-color: #f44336;
+}
+
+.unsubscribe-button:hover {
+  background-color: #e53935;
+}
+
+.title{
+   
+  color: #075e54;
+}
+/*********************/
+.current-subscriptions {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  color: #333333;
+  width: 90%;
+  max-width: 400px;
+  margin-bottom: 40px; 
+}
+
+.current-subscriptions h4 {
+  font-size: 1.5em;
+  color: #075e54;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.current-subscriptions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.current-subscriptions li {
+  padding: 10px;
+  font-size: 1.1em;
+  color: #128c7e;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.current-subscriptions li:last-child {
+  border-bottom: none;
+}
+
+.current-subscriptions p {
+  text-align: center;
+  color: #999999;
+  font-size: 1.1em;
 }
